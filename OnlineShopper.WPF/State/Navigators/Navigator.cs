@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Windows.Input;
 using OnlineShopper.WPF.Commands;
@@ -15,10 +16,12 @@ namespace OnlineShopper.WPF.State.Navigators
             get { return _current; }
             set
             {
+                _current?.Dispose();
+
                 _current = value;
-                OnPropertyChanged(nameof(Current));
+                StateChanged?.Invoke();
             }
         }
-        public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
+        public event Action StateChanged;
     }
 }

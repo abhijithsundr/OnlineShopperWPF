@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OnlineShopper.WPF.State.Accounts;
+using OnlineShopper.WPF.State.Authenticators;
 using OnlineShopper.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
@@ -15,8 +17,8 @@ namespace OnlineShopper.WPF.HostBuilders
                 services =>
                 {
                     services.AddSingleton<INavigator, Navigator>();
-                    //services.AddSingleton<IAuthenticator, Authenticator>();
-                    //services.AddSingleton<IAccountStore, AccountStore>();
+                    services.AddSingleton<IAuthenticator, Authenticator>();
+                    services.AddSingleton<IAccountStore, AccountStore>();
                     //services.AddSingleton<AssetStore>();
                 }
             );

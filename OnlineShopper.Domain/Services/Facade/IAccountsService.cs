@@ -12,5 +12,7 @@ namespace OnlineShopper.Domain.Services.Facade
         Task<double> CreditCashBalance(int accountId, double price);
         Task<double> DebitVoucherBalance(int accountId, double price);
         Task<double> CreditVoucherBalance(int accountId, double price);
+        Task<Account> GetByUsername(string username);
+        Task<Account> GetByEmail(string email);
     }
 }

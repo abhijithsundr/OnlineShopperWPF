@@ -129,6 +129,18 @@ namespace OnlineShopper.Data.Services.Manager
         {
             return _accounts.AsAsyncEnumerable<Account>();
         }
+
+        public async Task<Account?> GetByUsername(string username)
+        {
+            return await _accounts.FirstOrDefaultAsync(
+                x => x.AccountHolder.Username.Equals(username)
+            );
+        }
+
+        public async Task<Account?> GetByEmail(string email)
+        {
+            return await _accounts.FirstOrDefaultAsync(x => x.AccountHolder.Email.Equals(email));
+        }
         #endregion
     }
 }

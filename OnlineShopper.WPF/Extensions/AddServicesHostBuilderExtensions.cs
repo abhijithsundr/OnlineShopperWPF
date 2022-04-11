@@ -1,8 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineShopper.Data.Services.Manager;
 using OnlineShopper.Data.Services.Transactions.Manager;
 using OnlineShopper.Domain.Models;
+using OnlineShopper.Domain.Services.AuthenticationServices;
 using OnlineShopper.Domain.Services.Facade;
 using OnlineShopper.Domain.Services.Transactions.Facade;
 
@@ -15,8 +17,8 @@ namespace OnlineShopper.WPF.HostBuilders
             host.ConfigureServices(
                 services =>
                 {
-                    //services.AddSingleton<IPasswordHasher, PasswordHasher>();
-                    //services.AddSingleton<IAuthenticationService, AuthenticationService>();
+                    services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
+                    services.AddSingleton<IAuthenticationService, AuthenticationService>();
                     services.AddSingleton<IDataService<Account>, AccountsService>();
                     services.AddSingleton<IAccountsService, AccountsService>();
                     services.AddSingleton<IProductsService, ProductsService>();

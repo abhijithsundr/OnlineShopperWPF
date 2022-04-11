@@ -8,17 +8,29 @@
         mc:Ignorable="d"
         Title="Online Shopper" Height="450" Width="800">
     
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        
-        <!-- Set the data context passed to Navigationbar -->
-        <controls:Navigationbar Grid.Row="0" DataContext="{Binding Navigator}" />
-        
-        <!--- Set the content for the tab -->
-        <ContentControl Grid.Row="1" Content="{Binding Navigator.Current}" />
-    </Grid>    
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+    
+            <Grid Grid.Row="0">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsLoggedIn}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                
+                <controls:Navigationbar/>
+            </Grid>
+            
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <ContentControl Content="{Binding Current}"/>
+            </ScrollViewer>
+        </Grid>  
 
 </Window>

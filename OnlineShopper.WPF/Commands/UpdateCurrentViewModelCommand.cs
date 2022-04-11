@@ -2,6 +2,7 @@ using System;
 using System.Windows.Input;
 using OnlineShopper.WPF.ViewModels;
 using OnlineShopper.WPF.State.Navigators;
+using OnlineShopper.WPF.ViewModels.Factories;
 
 namespace OnlineShopper.WPF.Commands
 {
@@ -11,35 +12,32 @@ namespace OnlineShopper.WPF.Commands
     /// </summary>
     internal class UpdateCurrentViewModelCommand : ICommand
     {
-        public event EventHandler? CanExecuteChanged;
-        private readonly INavigator _navigator;
+        public event EventHandler CanExecuteChanged;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator)
+        private readonly INavigator _navigator;
+        private readonly IOnlineShopperViewModelFactory _viewModelFactory;
+
+        public UpdateCurrentViewModelCommand(
+            INavigator navigator,
+            IOnlineShopperViewModelFactory viewModelFactory
+        )
         {
-            _navigator = navigator ?? throw new ArgumentNullException(nameof(navigator));
+            _navigator = navigator;
+            _viewModelFactory = viewModelFactory;
         }
 
-        public bool CanExecute(object? parameter)
+        public bool CanExecute(object parameter)
         {
             return true;
         }
 
-        public void Execute(object? parameter)
+        public void Execute(object parameter)
         {
             if (parameter is ViewType)
             {
                 ViewType viewType = (ViewType)parameter;
-                switch (viewType)
-                {
-                    case ViewType.Home:
-                        _navigator.Current = new HomeViewModel();
-                        break;
-                    case ViewType.Products:
-                        _navigator.Current = new ProductsViewModel();
-                        break;
-                    default:
-                        break;
-                }
+
+                _navigator.Current = _viewModelFactory.CreateViewModel(viewType);
             }
         }
     }

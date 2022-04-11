@@ -4,6 +4,7 @@ using OnlineShopper.WPF.State.Navigators;
 using OnlineShopper.WPF.ViewModels.Factories;
 using OnlineShopper.WPF.ViewModels;
 using System;
+using OnlineShopper.WPF.State.Authenticators;
 
 namespace OnlineShopper.WPF.HostBuilders
 {
@@ -33,12 +34,12 @@ namespace OnlineShopper.WPF.HostBuilders
                     // services.AddSingleton<CreateViewModel<SellViewModel>>(
                     //     services => () => services.GetRequiredService<SellViewModel>()
                     // );
-                    // services.AddSingleton<CreateViewModel<LoginViewModel>>(
-                    //     services => () => CreateLoginViewModel(services)
-                    // );
-                    // services.AddSingleton<CreateViewModel<RegisterViewModel>>(
-                    //     services => () => CreateRegisterViewModel(services)
-                    // );
+                    services.AddSingleton<CreateViewModel<LoginViewModel>>(
+                        services => () => CreateLoginViewModel(services)
+                    );
+                    services.AddSingleton<CreateViewModel<RegisterViewModel>>(
+                        services => () => CreateRegisterViewModel(services)
+                    );
 
                     services.AddSingleton<
                         IOnlineShopperViewModelFactory,
@@ -46,8 +47,8 @@ namespace OnlineShopper.WPF.HostBuilders
                     >();
 
                     services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
-                    //services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
-                    //services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
+                    services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
+                    services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
                 }
             );
 
@@ -65,22 +66,22 @@ namespace OnlineShopper.WPF.HostBuilders
             return new HomeViewModel();
         }
 
-        // private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
-        // {
-        //     return new LoginViewModel(
-        //         services.GetRequiredService<IAuthenticator>(),
-        //         services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
-        //         services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
-        //     );
-        // }
+        private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
+        {
+            return new LoginViewModel(
+                services.GetRequiredService<IAuthenticator>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
+            );
+        }
 
-        // private static RegisterViewModel CreateRegisterViewModel(IServiceProvider services)
-        // {
-        //     return new RegisterViewModel(
-        //         services.GetRequiredService<IAuthenticator>(),
-        //         services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>(),
-        //         services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>()
-        //     );
-        // }
+        private static RegisterViewModel CreateRegisterViewModel(IServiceProvider services)
+        {
+            return new RegisterViewModel(
+                services.GetRequiredService<IAuthenticator>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>()
+            );
+        }
     }
 }

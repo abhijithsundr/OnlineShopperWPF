@@ -8,22 +8,22 @@ namespace OnlineShopper.WPF.ViewModels.Factories
     {
         private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
         private readonly CreateViewModel<ProductsViewModel> _createProductsViewModel;
+        private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
 
-        // private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
         // private readonly CreateViewModel<BuyViewModel> _createBuyViewModel;
         // private readonly CreateViewModel<SellViewModel> _createSellViewModel;
 
         public OnlineShopperViewModelFactory(
             CreateViewModel<HomeViewModel> createHomeViewModel,
-            CreateViewModel<ProductsViewModel> createProductViewModel
-        // CreateViewModel<LoginViewModel> createLoginViewModel,
+            CreateViewModel<ProductsViewModel> createProductViewModel,
+            CreateViewModel<LoginViewModel> createLoginViewModel
         // CreateViewModel<BuyViewModel> createBuyViewModel,
         // CreateViewModel<SellViewModel> createSellViewModel
         )
         {
             _createHomeViewModel = createHomeViewModel;
             _createProductsViewModel = createProductViewModel;
-            // _createLoginViewModel = createLoginViewModel;
+            _createLoginViewModel = createLoginViewModel;
             // _createBuyViewModel = createBuyViewModel;
             // _createSellViewModel = createSellViewModel;
         }
@@ -32,8 +32,8 @@ namespace OnlineShopper.WPF.ViewModels.Factories
         {
             switch (viewType)
             {
-                // case ViewType.Login:
-                //     return _createLoginViewModel();
+                case ViewType.Login:
+                    return _createLoginViewModel();
                 case ViewType.Home:
                     return _createHomeViewModel();
                 case ViewType.Products:
