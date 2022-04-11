@@ -1,0 +1,13 @@
+## vscode
+.vscode
+
+## build
+bin
+obj
+config
+
+## git
+.git
+
+## misc
+notes.txt
