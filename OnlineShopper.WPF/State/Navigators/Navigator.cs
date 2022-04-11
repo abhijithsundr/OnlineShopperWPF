@@ -1,10 +1,10 @@
 using System.ComponentModel;
 using System.Windows.Input;
-using RockstarTHA.WPF.Commands;
-using RockstarTHA.WPF.Models;
-using RockstarTHA.WPF.ViewModels;
+using OnlineShopper.WPF.Commands;
+using OnlineShopper.WPF.Models;
+using OnlineShopper.WPF.ViewModels;
 
-namespace RockstarTHA.WPF.State.Navigators
+namespace OnlineShopper.WPF.State.Navigators
 {
     internal class Navigator : ObservableObject, INavigator
     {

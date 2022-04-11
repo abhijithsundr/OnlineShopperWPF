@@ -1,7 +1,7 @@
 using System.Windows.Input;
-using RockstarTHA.WPF.ViewModels;
+using OnlineShopper.WPF.ViewModels;
 
-namespace RockstarTHA.WPF.State.Navigators
+namespace OnlineShopper.WPF.State.Navigators
 {
     public enum ViewType
     {

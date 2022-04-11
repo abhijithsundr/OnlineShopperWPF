@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace RockstarTHA.WPF.Controls
+namespace OnlineShopper.WPF.Controls
 {
     public partial class Navigationbar : UserControl
     {

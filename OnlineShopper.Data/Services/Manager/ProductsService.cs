@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using OnlineShopper.Data.Services.Facade;
 using OnlineShopper.Domain.Models;
+using OnlineShopper.Domain.Services.Facade;
 
 namespace OnlineShopper.Data.Services.Manager
 {

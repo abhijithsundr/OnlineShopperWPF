@@ -1,6 +1,6 @@
-﻿using RockstarTHA.WPF.State.Navigators;
+﻿using OnlineShopper.WPF.State.Navigators;
 
-namespace RockstarTHA.WPF.ViewModels
+namespace OnlineShopper.WPF.ViewModels
 {
     internal class MainViewModel : ViewModelBase
     {

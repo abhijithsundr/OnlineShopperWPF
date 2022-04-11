@@ -1,14 +1,14 @@
 using System;
 using System.Threading.Tasks;
-using OnlineShopper.Data.Services.Facade;
-using OnlineShopper.Data.Services.Transactions.Facade;
 using OnlineShopper.Domain.Models;
+using OnlineShopper.Domain.Services.Facade;
+using OnlineShopper.Domain.Services.Transactions.Facade;
 
 namespace OnlineShopper.Data.Services.Transactions.Manager
 {
     public class BuyProductsService : IBuyProductsService
     {
-        private readonly IProductsService _products; 
+        private readonly IProductsService _products;
         private readonly IAccountsService _accounts;
 
         public BuyProductsService(IProductsService products, IAccountsService accounts)
@@ -21,15 +21,15 @@ namespace OnlineShopper.Data.Services.Transactions.Manager
         {
             var account = await _accounts.Get(accountId);
             var product = await _products.Get(productId);
-            
-            if (product.Inventory < 1) 
+
+            if (product.Inventory < 1)
             {
                 throw new Exception("Item is currently out of stock.");
             }
 
             if (forCash)
             {
-                if (account.CashBalance < product.BuyPrice) 
+                if (account.CashBalance < product.BuyPrice)
                 {
                     throw new Exception("You do not have enough cash to purchase this item.");
                 }
@@ -40,7 +40,9 @@ namespace OnlineShopper.Data.Services.Transactions.Manager
             {
                 if (account.VoucherBalance < product.BuyPrice)
                 {
-                    throw new Exception("You do not have enough voucher balance to purchase this item");
+                    throw new Exception(
+                        "You do not have enough voucher balance to purchase this item"
+                    );
                 }
 
                 await _accounts.DebitVoucherBalance(accountId, product.BuyPrice);

@@ -1,9 +1,9 @@
 using System;
 using System.Windows.Input;
-using RockstarTHA.WPF.ViewModels;
-using RockstarTHA.WPF.State.Navigators;
+using OnlineShopper.WPF.ViewModels;
+using OnlineShopper.WPF.State.Navigators;
 
-namespace RockstarTHA.WPF.Commands
+namespace OnlineShopper.WPF.Commands
 {
     /// <summary>
     /// This class is responsible for taking an INavigator and updating the ViewModel

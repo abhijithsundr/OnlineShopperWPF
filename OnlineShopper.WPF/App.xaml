@@ -1,9 +1,9 @@
-﻿<Application x:Class="RockstarTHA.WPF.App"
+﻿<Application x:Class="OnlineShopper.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RockstarTHA.WPF"
-             xmlns:viewModels="clr-namespace:RockstarTHA.WPF.ViewModels"
-             xmlns:views="clr-namespace:RockstarTHA.WPF.Views"
+             xmlns:local="clr-namespace:OnlineShopper.WPF"
+             xmlns:viewModels="clr-namespace:OnlineShopper.WPF.ViewModels"
+             xmlns:views="clr-namespace:OnlineShopper.WPF.Views"
             >
     <Application.Resources>
 

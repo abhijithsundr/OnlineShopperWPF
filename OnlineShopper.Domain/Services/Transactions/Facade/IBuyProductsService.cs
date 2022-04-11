@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using OnlineShopper.Domain.Models;
 
-namespace OnlineShopper.Data.Services.Transactions.Facade
+namespace OnlineShopper.Domain.Services.Transactions.Facade
 {
     public interface IBuyProductsService
     {

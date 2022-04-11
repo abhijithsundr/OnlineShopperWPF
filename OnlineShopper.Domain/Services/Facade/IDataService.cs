@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineShopper.Data.Services.Facade
+namespace OnlineShopper.Domain.Services.Facade
 {
     public interface IDataService<T>
     {

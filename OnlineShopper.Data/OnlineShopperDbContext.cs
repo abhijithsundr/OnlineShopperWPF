@@ -5,6 +5,7 @@ namespace OnlineShopper.Data
 {
     public class OnlineShopperDbContext : DbContext
     {
+        public OnlineShopperDbContext(DbContextOptions options) : base(options) { }
         public DbSet<User> Users { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Product> Products { get; set; }

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace RockstarTHA.WPF.Models
+namespace OnlineShopper.WPF.Models
 {
     public class ObservableObject : INotifyPropertyChanged
     {

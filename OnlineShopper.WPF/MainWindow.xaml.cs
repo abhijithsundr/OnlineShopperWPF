@@ -2,16 +2,18 @@
 using System.Linq;
 using System.Windows;
 
-namespace RockstarTHA.WPF
+namespace OnlineShopper.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(object dataContext)
         {
             InitializeComponent();
+
+            DataContext = dataContext;
         }
     }
 }

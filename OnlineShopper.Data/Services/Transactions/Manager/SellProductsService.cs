@@ -2,18 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using OnlineShopper.Data.Services.Facade;
-using OnlineShopper.Data.Services.Transactions.Facade;
 using OnlineShopper.Domain.Models;
+using OnlineShopper.Domain.Services.Facade;
+using OnlineShopper.Domain.Services.Transactions.Facade;
 
 namespace OnlineShopper.Data.Services.Transactions.Manager
 {
-    public class SellProductService : ISellProductsService
+    public class SellProductsService : ISellProductsService
     {
         private readonly IProductsService _products;
         private readonly IAccountsService _accounts;
 
-        public SellProductService(IProductsService products, IAccountsService accounts)
+        public SellProductsService(IProductsService products, IAccountsService accounts)
         {
             _products = products;
             _accounts = accounts;

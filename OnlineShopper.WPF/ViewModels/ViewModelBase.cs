@@ -1,12 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RockstarTHA.WPF.ViewModels
+namespace OnlineShopper.WPF.ViewModels
 {
-    internal class ViewModelBase : IDisposable
+    internal delegate TViewModel CreateViewModel<TViewModel>() where TViewModel : ViewModelBase;
+
+    internal class ViewModelBase : INotifyPropertyChanged
     {
-        public void Dispose() { }
+        public virtual void Dispose() { }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
