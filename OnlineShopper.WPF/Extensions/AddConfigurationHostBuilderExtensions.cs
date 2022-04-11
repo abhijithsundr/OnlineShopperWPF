@@ -12,7 +12,6 @@ namespace OnlineShopper.WPF.HostBuilders
         {
             host.ConfigureAppConfiguration(c =>
             {
-                c.AddJsonFile("appsettings.json");
                 c.AddEnvironmentVariables();
             });
 
