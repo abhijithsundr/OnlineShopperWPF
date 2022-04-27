@@ -11,7 +11,7 @@ namespace OnlineShopper.WPF.ViewModels
 {
     internal class LoginViewModel : ViewModelBase
     {
-        private string _username = "Abhijith";
+        private string _username = "admin";
         public string Username
         {
             get { return _username; }

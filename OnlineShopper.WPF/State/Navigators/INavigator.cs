@@ -8,7 +8,8 @@ namespace OnlineShopper.WPF.State.Navigators
     {
         Login,
         Home,
-        Products
+        Products,
+        Profile
     }
 
     internal interface INavigator

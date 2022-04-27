@@ -18,7 +18,7 @@ namespace OnlineShopper.WPF.HostBuilders
                 {
                     services.AddTransient(CreateHomeViewModel);
                     services.AddTransient(CreateProductsViewModel);
-                    //services.AddTransient<BuyViewModel>();
+                    services.AddTransient<ProfileViewModel>();
                     //services.AddTransient<SellViewModel>();
                     //services.AddTransient<AssetSummaryViewModel>();
                     services.AddTransient<MainViewModel>();
@@ -29,10 +29,10 @@ namespace OnlineShopper.WPF.HostBuilders
                     services.AddSingleton<CreateViewModel<ProductsViewModel>>(
                         services => () => services.GetRequiredService<ProductsViewModel>()
                     );
-                    // services.AddSingleton<CreateViewModel<BuyViewModel>>(
-                    //     services => () => services.GetRequiredService<BuyViewModel>()
-                    // );
-                    // services.AddSingleton<CreateViewModel<SellViewModel>>(
+                    services.AddSingleton<CreateViewModel<ProfileViewModel>>(
+                        services => () => services.GetRequiredService<ProfileViewModel>()
+                    );
+                    //services.AddSingleton<CreateViewModel<SellViewModel>>(
                     //     services => () => services.GetRequiredService<SellViewModel>()
                     // );
                     services.AddSingleton<CreateViewModel<LoginViewModel>>(

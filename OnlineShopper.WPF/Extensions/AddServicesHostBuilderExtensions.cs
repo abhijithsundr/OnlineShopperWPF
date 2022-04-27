@@ -19,7 +19,6 @@ namespace OnlineShopper.WPF.HostBuilders
                 {
                     services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
                     services.AddSingleton<IAuthenticationService, AuthenticationService>();
-                    services.AddSingleton<IDataService<Account>, AccountsService>();
                     services.AddSingleton<IAccountsService, AccountsService>();
                     services.AddSingleton<IProductsService, ProductsService>();
                     services.AddSingleton<IBuyProductsService, BuyProductsService>();

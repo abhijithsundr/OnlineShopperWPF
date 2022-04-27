@@ -25,6 +25,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
@@ -37,6 +38,11 @@
                 Command="{Binding UpdateCurrentViewModelCommand}" 
                 CommandParameter="{x:Static nav:ViewType.Products}"
                 Content="Products"
+                />
+            <RadioButton Grid.Column = "2" 
+                Command="{Binding UpdateCurrentViewModelCommand}" 
+                CommandParameter="{x:Static nav:ViewType.Profile}"
+                Content="Profile"
                 />
         </Grid>
     </Grid>

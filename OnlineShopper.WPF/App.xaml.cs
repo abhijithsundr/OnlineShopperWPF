@@ -104,10 +104,10 @@ namespace OnlineShopper.WPF
             );
 
             await authenticationService.Register(
-                "test@mail.com",
-                "Abhijith",
-                "password",
-                "password"
+                "admin@onlineshopper.com",
+                "admin",
+                "admin",
+                "admin"
             );
         }
     }

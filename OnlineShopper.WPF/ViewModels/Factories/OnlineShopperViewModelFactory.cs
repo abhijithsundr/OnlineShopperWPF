@@ -9,22 +9,21 @@ namespace OnlineShopper.WPF.ViewModels.Factories
         private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
         private readonly CreateViewModel<ProductsViewModel> _createProductsViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
-
-        // private readonly CreateViewModel<BuyViewModel> _createBuyViewModel;
+        private readonly CreateViewModel<ProfileViewModel> _createProfileViewModel;
         // private readonly CreateViewModel<SellViewModel> _createSellViewModel;
 
         public OnlineShopperViewModelFactory(
             CreateViewModel<HomeViewModel> createHomeViewModel,
             CreateViewModel<ProductsViewModel> createProductViewModel,
-            CreateViewModel<LoginViewModel> createLoginViewModel
-        // CreateViewModel<BuyViewModel> createBuyViewModel,
+            CreateViewModel<LoginViewModel> createLoginViewModel,
+            CreateViewModel<ProfileViewModel> createProfileViewModel
         // CreateViewModel<SellViewModel> createSellViewModel
         )
         {
             _createHomeViewModel = createHomeViewModel;
             _createProductsViewModel = createProductViewModel;
             _createLoginViewModel = createLoginViewModel;
-            // _createBuyViewModel = createBuyViewModel;
+            _createProfileViewModel = createProfileViewModel;
             // _createSellViewModel = createSellViewModel;
         }
 
@@ -38,9 +37,9 @@ namespace OnlineShopper.WPF.ViewModels.Factories
                     return _createHomeViewModel();
                 case ViewType.Products:
                     return _createProductsViewModel();
-                // case ViewType.Buy:
-                //     return _createBuyViewModel();
-                // case ViewType.Sell:
+                case ViewType.Profile:
+                    return _createProfileViewModel();
+                //case ViewType.Sell:
                 //     return _createSellViewModel();
                 default:
                     throw new ArgumentException(
