@@ -5,6 +5,7 @@ using OnlineShopper.WPF.ViewModels.Factories;
 using OnlineShopper.WPF.ViewModels;
 using System;
 using OnlineShopper.WPF.State.Authenticators;
+using OnlineShopper.Domain.Services.Facade;
 
 namespace OnlineShopper.WPF.HostBuilders
 {
@@ -16,7 +17,7 @@ namespace OnlineShopper.WPF.HostBuilders
                 services =>
                 {
                     services.AddTransient(CreateHomeViewModel);
-                    services.AddTransient<ProductsViewModel>();
+                    services.AddTransient(CreateProductsViewModel);
                     //services.AddTransient<BuyViewModel>();
                     //services.AddTransient<SellViewModel>();
                     //services.AddTransient<AssetSummaryViewModel>();
@@ -64,6 +65,11 @@ namespace OnlineShopper.WPF.HostBuilders
             //     )
             // );
             return new HomeViewModel();
+        }
+
+        private static ProductsViewModel CreateProductsViewModel(IServiceProvider services)
+        {
+            return ProductsViewModel.LoadProductsViewModel(services.GetRequiredService<IProductsService>());
         }
 
         private static LoginViewModel CreateLoginViewModel(IServiceProvider services)

@@ -2,12 +2,14 @@
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
             xmlns:local="clr-namespace:OnlineShopper.WPF" 
-            xmlns:viewmodels="clr-namespace:OnlineShopper.WPF.ViewModels" xmlns:views="clr-namespace:OnlineShopper.WPF.Views">
+            xmlns:viewmodels="clr-namespace:OnlineShopper.WPF.ViewModels" 
+            xmlns:views="clr-namespace:OnlineShopper.WPF.Views">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/Common.xaml"/>
                 <ResourceDictionary Source="/Styles/Navigationbar.xaml"/>
+                <ResourceDictionary Source="/Styles/ProductsList.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                 <views:HomeView/>

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineShopper.Data;
+using OnlineShopper.Domain.Models;
+using OnlineShopper.Domain.Services.AuthenticationServices;
+using OnlineShopper.Domain.Services.Facade;
 using OnlineShopper.WPF.HostBuilders;
 
 namespace OnlineShopper.WPF
@@ -57,7 +61,7 @@ namespace OnlineShopper.WPF
         //     services.AddSingleton<MainWindow>();
         // }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected async override void OnStartup(StartupEventArgs e)
         {
             _host.Start();
 
@@ -69,8 +73,12 @@ namespace OnlineShopper.WPF
                 context.Database.IsInMemory();
             }
 
+            SeedAdminUser();
+
             Window window = _host.Services.GetRequiredService<MainWindow>();
             window.Show();
+
+            Application.Current.MainWindow.WindowState = WindowState.Maximized;
 
             base.OnStartup(e);
         }
@@ -81,6 +89,26 @@ namespace OnlineShopper.WPF
             _host.Dispose();
 
             base.OnExit(e);
+        }
+
+        private async void SeedAdminUser()
+        {
+            IAccountsService accountsService =
+                _host.Services.GetRequiredService<IAccountsService>();
+            IPasswordHasher<User> passwordHasher = _host.Services.GetRequiredService<
+                IPasswordHasher<User>
+            >();
+            AuthenticationService authenticationService = new AuthenticationService(
+                accountsService,
+                passwordHasher
+            );
+
+            await authenticationService.Register(
+                "test@mail.com",
+                "Abhijith",
+                "password",
+                "password"
+            );
         }
     }
 }

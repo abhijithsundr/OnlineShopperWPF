@@ -9,10 +9,18 @@ namespace OnlineShopper.Domain.Models
     {
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public string Category { get; set; }
+        public Category Category { get; set; }
         public double BuyPrice { get; set; }
         public double SellPrice { get; set; }
         public double VoucherPrice { get; set; }
         public int Inventory { get; set; }
+    }
+
+    public enum Category 
+    {
+        Desktops,
+        Laptops,
+        Mobiles,
+        Accessories
     }
 }

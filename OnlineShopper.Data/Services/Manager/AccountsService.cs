@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopper.Domain.Models;
@@ -125,7 +126,7 @@ namespace OnlineShopper.Data.Services.Manager
             return await _accounts.FindAsync(id);
         }
 
-        public async Task<IAsyncEnumerable<Account>> GetAll()
+        public async Task<IAsyncEnumerable<Account>> GetAll(Expression<Func<Account, bool>> expr)
         {
             return _accounts.AsAsyncEnumerable<Account>();
         }

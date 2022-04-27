@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OnlineShopper.Domain.Models;
@@ -71,8 +72,13 @@ namespace OnlineShopper.Data.Services.Manager
             return await _products.FindAsync(id);
         }
 
-        public async Task<IAsyncEnumerable<Product>> GetAll()
+        public async Task<IAsyncEnumerable<Product>> GetAll(Expression<Func<Product,bool>> expr)
         {
+            if (expr is not null)
+            {
+                return _products.Where(expr).AsAsyncEnumerable<Product>();
+            }
+
             return _products.AsAsyncEnumerable<Product>();
         }
         #endregion
