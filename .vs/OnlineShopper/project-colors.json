@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "21737390-c19a-42dc-a8ae-026431b59aad": {
+      "ProjectGuid": "21737390-c19a-42dc-a8ae-026431b59aad",
+      "DisplayName": "OnlineShopper.Domain.Tests",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "61d5cbb2-8bdb-4f61-9f86-8dd2f46646dc": {
+      "ProjectGuid": "61d5cbb2-8bdb-4f61-9f86-8dd2f46646dc",
+      "DisplayName": "OnlineShopper.Domain",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
