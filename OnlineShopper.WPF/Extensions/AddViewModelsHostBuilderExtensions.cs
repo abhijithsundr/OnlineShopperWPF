@@ -6,6 +6,7 @@ using OnlineShopper.WPF.ViewModels;
 using System;
 using OnlineShopper.WPF.State.Authenticators;
 using OnlineShopper.Domain.Services.Facade;
+using OnlineShopper.Domain.Services.Transactions.Facade;
 
 namespace OnlineShopper.WPF.HostBuilders
 {
@@ -69,7 +70,12 @@ namespace OnlineShopper.WPF.HostBuilders
 
         private static ProductsViewModel CreateProductsViewModel(IServiceProvider services)
         {
-            return ProductsViewModel.LoadProductsViewModel(services.GetRequiredService<IProductsService>());
+            return ProductsViewModel.LoadProductsViewModel(
+                services.GetRequiredService<IProductsService>(),
+                services.GetRequiredService<IBuyProductsService>(),
+                services.GetRequiredService<ISellProductsService>(),
+                services.GetRequiredService<IAuthenticator>()
+            );
         }
 
         private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
