@@ -9,7 +9,8 @@ namespace OnlineShopper.WPF.State.Navigators
         Login,
         Home,
         Products,
-        Profile
+        Profile,
+        AdminPanel
     }
 
     internal interface INavigator

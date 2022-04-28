@@ -4,7 +4,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Margin="10" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" BorderBrush="{StaticResource BrushSecondary}" BorderThickness="3" CornerRadius="10">
+        <Border Grid.Column="0" Margin="10" Padding="10" HorizontalAlignment="Center" Background="White" BorderBrush="{StaticResource BrushSecondary}" BorderThickness="3" CornerRadius="10">
             <StackPanel Margin="5,0,0,0">
                 <Label x:Name="lblAll" Content="All" MouseLeftButtonDown="btnAll_Click"/>
                 <Label x:Name="lblDesktops" Content="Desktops" MouseLeftButtonDown="btnDesktops_Click"/>
@@ -13,7 +13,7 @@
                 <Label x:Name="lblAccessories" Content="Accessories" MouseLeftButtonDown="btnAccessories_Click"/>
             </StackPanel>
         </Border>
-        <ListBox Grid.Column="1" ItemsSource="{Binding Products}" HorizontalContentAlignment="Center">
+        <ListBox Grid.Column="1" ItemsSource="{Binding Products}" HorizontalContentAlignment="Center" ScrollViewer.CanContentScroll="False">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Grid.ColumnSpan="4" Grid.Row="1" Margin="5,0,5,0">

@@ -20,15 +20,6 @@ namespace OnlineShopper.WPF
     /// </summary>
     sealed partial class App : Application
     {
-        // private ServiceProvider serviceProvider;
-
-        // public App()
-        // {
-        //     ServiceCollection services = new ServiceCollection();
-        //     ConfigureServices(services);
-        //     serviceProvider = services.BuildServiceProvider();
-        // }
-
         private readonly IHost _host;
 
         public App()
@@ -46,20 +37,6 @@ namespace OnlineShopper.WPF
                 .AddViewModels()
                 .AddViews();
         }
-
-        // private void ConfigureServices(ServiceCollection services)
-        // {
-        //     OnlineShopperDbContext contextFactory =
-        //         _host.Services.GetRequiredService<OnlineShopperDbContextFactory>();
-        //     services.AddDbContext<OnlineShopperDbContext>(
-        //         options =>
-        //         {
-        //             options.UseInMemoryDatabase("localdb");
-        //         }
-        //     );
-
-        //     services.AddSingleton<MainWindow>();
-        // }
 
         protected async override void OnStartup(StartupEventArgs e)
         {

@@ -10,6 +10,6 @@
             d:DesignWidth="300"
             >
     <Grid>
-        <controls:ProfileCard Margin="10 10" DataContext="{Binding}"/>
+        <controls:ProfileCard Margin="50 10" DataContext="{Binding}"/>
     </Grid>
 </UserControl>

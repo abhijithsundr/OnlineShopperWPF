@@ -10,21 +10,21 @@ namespace OnlineShopper.WPF.ViewModels.Factories
         private readonly CreateViewModel<ProductsViewModel> _createProductsViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
         private readonly CreateViewModel<ProfileViewModel> _createProfileViewModel;
-        // private readonly CreateViewModel<SellViewModel> _createSellViewModel;
+        private readonly CreateViewModel<AdminViewModel> _createAdminlViewModel;
 
         public OnlineShopperViewModelFactory(
             CreateViewModel<HomeViewModel> createHomeViewModel,
             CreateViewModel<ProductsViewModel> createProductViewModel,
             CreateViewModel<LoginViewModel> createLoginViewModel,
-            CreateViewModel<ProfileViewModel> createProfileViewModel
-        // CreateViewModel<SellViewModel> createSellViewModel
+            CreateViewModel<ProfileViewModel> createProfileViewModel,
+            CreateViewModel<AdminViewModel> createAdminViewModel
         )
         {
             _createHomeViewModel = createHomeViewModel;
             _createProductsViewModel = createProductViewModel;
             _createLoginViewModel = createLoginViewModel;
             _createProfileViewModel = createProfileViewModel;
-            // _createSellViewModel = createSellViewModel;
+            _createAdminlViewModel = createAdminViewModel;
         }
 
         public ViewModelBase CreateViewModel(ViewType viewType)
@@ -39,8 +39,8 @@ namespace OnlineShopper.WPF.ViewModels.Factories
                     return _createProductsViewModel();
                 case ViewType.Profile:
                     return _createProfileViewModel();
-                //case ViewType.Sell:
-                //     return _createSellViewModel();
+                case ViewType.AdminPanel:
+                    return _createAdminlViewModel();
                 default:
                     throw new ArgumentException(
                         "The ViewType does not have a ViewModel.",
